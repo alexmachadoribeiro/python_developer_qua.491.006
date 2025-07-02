@@ -1,0 +1,1 @@
+Este texto será lido por um programa feito na linguagem Python por mim. 😎👌

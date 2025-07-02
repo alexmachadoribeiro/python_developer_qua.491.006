@@ -1,0 +1,1 @@
+Texto digitado para a aula de gravação de arquivo do curso de Python.
