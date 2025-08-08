@@ -74,16 +74,16 @@ class ContaCorrente(Conta):
     # métodos da interface
     def consultar_dados(self):
         print(f"{'-'*20} DADOS DA CONTA {'-'*20}\n")
-        print(f"Titular da conta: {self.__titular}")
-        print(f"CPF do titular: {self.__cpf}")
-        print(f"Agência: {self.__agencia}")
-        print(f"Número da conta: {self.__conta}")
-        print(f"Saldo: R$ {self.__saldo:.2f}")
+        print(f"Titular da conta: {self.titular}")
+        print(f"CPF do titular: {self.cpf}")
+        print(f"Agência: {self.agencia}")
+        print(f"Número da conta: {self.conta}")
+        print(f"Saldo: R$ {self.saldo:.2f}")
     
     def depositar(self, valor):
-        self.__saldo += valor
-        return self.__saldo
+        self.saldo += valor
+        return self.saldo
     
     def sacar(self, valor):
-        self.__saldo -= valor
-        return self.__saldo
+        self.saldo -= valor
+        return self.saldo
