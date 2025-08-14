@@ -5,11 +5,7 @@ def main():
 
     print(usuario)
     print(f"Idade: {len(usuario)}")
-
-    # destruição do objeto
     del(usuario)
-
-    # print(usuario)
 
 if __name__ == "__main__":
     main()
