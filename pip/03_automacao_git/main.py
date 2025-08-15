@@ -15,6 +15,7 @@ def main():
 
     tirar_credenciais()
 
+    auto.write('cd..')
     auto.write(f'git config --global user.name "{usuario}"')
     auto.press("enter")
     auto.write(f'git config --global user.email "{email}"')
