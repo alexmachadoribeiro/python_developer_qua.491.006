@@ -131,6 +131,7 @@ def alterar_dados(session, Pessoa):
                     case _:
                         print("Campo inexistente")
                         continue
+            # TODO: completar a função
         else:
             print("Pessoa não encontrada.")
     except Exception as e:
