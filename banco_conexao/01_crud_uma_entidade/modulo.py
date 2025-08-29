@@ -7,15 +7,23 @@ def cadastrar_pessoa(session, Pessoa):
     try:
         nome = input("Digite o nome do usuário: ").strip().title()
         email = input("Digite o e-mail do usuário: ").strip().lower()
-        data_nascimento = input("Digite a data de nascimento (dd/mm/aaaa): ").strip()
-        data_nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y").date()
 
-        nova_pessoa = Pessoa(nome=nome, email=email, data_nascimento=data_nascimento)
+        # TODO: fazer correção do bug da aula do dia 28/08/2025 na aula do dia 29/08/2025
+        pessoas = session.query(Pessoa).filter(Pessoa.email.like(f"{email}")).all()
 
-        session.add(nova_pessoa)
-        session.commit()
+        if email in [pessoa.email for pessoa in pessoas]:
+            print("E-mail já cadastrado.")
+        else:
+            data_nascimento = input("Digite a data de nascimento (dd/mm/aaaa): ").strip()
+            data_nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y").date()
 
-        print(f"Pessoa {nome} cadastrada com sucesso.")
+            nova_pessoa = Pessoa(nome=nome, email=email, data_nascimento=data_nascimento)
+
+            session.add(nova_pessoa)
+            session.commit()
+
+            print(f"Pessoa {nome} cadastrada com sucesso.")
+        # fim da correção
     except Exception as e:
         print(f"Não foi possível cadastrar pessoa. {e}.")
 
