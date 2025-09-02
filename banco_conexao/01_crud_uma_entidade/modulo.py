@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+import pandas as pd
 
 limpar = lambda: os.system("cls" if os.name == "nt" else "clear")
 
@@ -172,7 +173,7 @@ def excluir_pessoa(session, Pessoa):
             return ""
         case _:
             print("Opção inválida.")
-    
+
     if pessoa:
         limpar()
         print(f"ID: {pessoa.id_pessoa}")
@@ -195,4 +196,22 @@ def excluir_pessoa(session, Pessoa):
     else:
         print("Pessoa não encontrada.")
 
-# TODO: crie uma função que exporte os dados para uma planilha csv
+# NOTE: para essa função funcionar, precisa do pandas e do openpyxl instalados na .venv
+def exportar_excel(session, Pessoa):
+    try:
+        pessoas = session.query(Pessoa).all()
+        # Cria uma lista de dicionários com os dados das pessoas
+        dados = [
+            {
+                "ID": pessoa.id_pessoa,
+                "Nome": pessoa.nome,
+                "E-mail": pessoa.email,
+                "Data de nascimento": pessoa.data_nascimento.strftime("%d/%m/%Y")
+            }
+            for pessoa in pessoas
+        ]
+        df = pd.DataFrame(dados)
+        df.to_excel("01_crud_uma_entidade/planilhas_exportadas/pessoas.xlsx", index=False)
+        print("Dados exportados para pessoas.xlsx com sucesso.")
+    except Exception as e:
+        print(f"Erro ao exportar dados: {e}")

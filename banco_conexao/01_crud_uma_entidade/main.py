@@ -19,7 +19,8 @@ def main():
         print("3 - Pesquisar pessoas")
         print("4 - Alterar dados de uma pessoa")
         print("5 - Excluir uma pessoa")
-        print("6 - Sair do programa")
+        print("6 - Exportar dados para Excel")
+        print("7 - Sair do programa")
         opcao = input("Informe a opção desejada: ").strip()
         md.limpar()
         match opcao:
@@ -39,6 +40,9 @@ def main():
                 md.excluir_pessoa(session, Pessoa)
                 continue
             case "6":
+                md.exportar_excel(session, Pessoa)
+                continue
+            case "7":
                 print("Programa encerrado.")
                 break
             case _:
