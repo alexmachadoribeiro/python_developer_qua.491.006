@@ -7,8 +7,6 @@ def cadastrar_pessoa(session, Pessoa):
     try:
         nome = input("Digite o nome do usuário: ").strip().title()
         email = input("Digite o e-mail do usuário: ").strip().lower()
-
-        # TODO: fazer correção do bug da aula do dia 28/08/2025 na aula do dia 29/08/2025
         pessoas = session.query(Pessoa).filter(Pessoa.email.like(f"{email}")).all()
 
         if email in [pessoa.email for pessoa in pessoas]:
@@ -23,7 +21,6 @@ def cadastrar_pessoa(session, Pessoa):
             session.commit()
 
             print(f"Pessoa {nome} cadastrada com sucesso.")
-        # fim da correção
     except Exception as e:
         print(f"Não foi possível cadastrar pessoa. {e}.")
 
@@ -82,7 +79,14 @@ def pesquisar_pessoas(session, Pessoa):
         print("Nenhuma pessoa foi encontrada.")
 
 def alterar_dados(session, Pessoa):
+    id_pessoa = ""
+    email = ""
+    novo_nome = ""
+    novo_email = ""
+    nova_data_nascimento = ""
+
     try:
+        print("Escolha o campo para pesquisar a pessoa a ter os dados alterados:")
         print("1 - ID")
         print("2 - E-mail")
         print("3 - Retornar")
@@ -96,7 +100,7 @@ def alterar_dados(session, Pessoa):
                 email = input("Informe o e-mail: ").strip()
                 pessoa = session.query(Pessoa).filter_by(email=email).first()
             case "3":
-                pass
+                return ""
             case _:
                 print("Opção inválida")
         if pessoa:
@@ -106,7 +110,7 @@ def alterar_dados(session, Pessoa):
                 print(f"1 - Nome: {pessoa.nome}")
                 print(f"2 - E-mail: {pessoa.email}")
                 print(f"3 - Data de nascimento: {pessoa.data_nascimento.strftime("%d/%m/%Y")}")
-                print("4 - Não desejo alterar")
+                print("4 - Finalizar")
                 campo = input("Informe o campo que deseja alterar: ").strip()
                 limpar()
                 match campo:
@@ -116,7 +120,7 @@ def alterar_dados(session, Pessoa):
                         continue
                     case "2":
                         novo_email = input("Informe o novo e-mail: ").strip().lower()
-                        pessoas = session.query(Pessoa).filter(Pessoa.email.like(f"{novo_email}")).all()
+                        pessoas = session.query(Pessoa).filter(Pessoa.email == novo_email).all()
                         if email in [pessoa.email for pessoa in pessoas]:
                             print("E-mail já cadastrado.")
                         else:
@@ -127,12 +131,68 @@ def alterar_dados(session, Pessoa):
                         print(f"Data de nascimento a ser cadastrada: {nova_data_nascimento}.")
                         continue
                     case "4":
+                        novo_nome = novo_nome if novo_nome != "" else pessoa.nome
+                        novo_email = novo_email if novo_email != "" else pessoa.email
+                        nova_data_nascimento = datetime.strptime(nova_data_nascimento, "%d/%m/%Y").date() if nova_data_nascimento != "" else pessoa.data_nascimento
                         break
                     case _:
                         print("Campo inexistente")
                         continue
-            # TODO: completar a função
+            pessoa.nome = novo_nome
+            pessoa.email = novo_email
+            pessoa.data_nascimento = nova_data_nascimento
+
+            session.commit()
+
+            print("Pessoa cadastrada com sucesso!")
         else:
             print("Pessoa não encontrada.")
     except Exception as e:
         print(f"Não foi possível alterar. {e}.")
+
+def excluir_pessoa(session, Pessoa):
+    id_pessoa = ""
+    email = ""
+    pessoa = ""
+
+    print("Escolha o campo que deseja pesquisar a pessoa a ser excluída.")
+    print("1 - ID")
+    print("2 - E-mail")
+    print("3 - Desistir")
+    opcao = input("Informe o campo que deseja pesquisar: ").strip()
+    limpar()
+    match opcao:
+        case "1":
+            id_pessoa = input("Informe o ID da pessoa a ser excluída: ").strip()
+            pessoa = session.query(Pessoa).filter_by(id_pessoa=id_pessoa).first()
+        case "2":
+            email = input("Informe o e-mail da pessoa a ser excluída: ").strip().lower()
+            pessoa = session.query(Pessoa).filter_by(email=email).first()
+        case "3":
+            return ""
+        case _:
+            print("Opção inválida.")
+    
+    if pessoa:
+        limpar()
+        print(f"ID: {pessoa.id_pessoa}")
+        print(f"Nome: {pessoa.nome}")
+        print(f"E-mail: {pessoa.email}")
+        print(f"Data de nascimento: {pessoa.data_nascimento.strftime("%d/%m/%Y")}")
+        print("1 - Sim")
+        print("2 - Não")
+        excluir = input("Tem certeza de que deseja excluir?").strip()
+        match excluir:
+            case "1":
+                session.delete(pessoa)
+                session.commit()
+
+                print("Pessoa excluída com sucesso.")
+            case "2":
+                pass
+            case _:
+                print("Opção inválida.")
+    else:
+        print("Pessoa não encontrada.")
+
+# TODO: crie uma função que exporte os dados para uma planilha csv
