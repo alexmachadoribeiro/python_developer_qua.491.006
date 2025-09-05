@@ -1,6 +1,10 @@
 # Links do Kaggle
 
-[Clique aqui para acessar o kaggle](https://www.kaggle.com/)\
-[Clique aqui para acessar o dataset do XBox](https://www.kaggle.com/code/vines666/xbox-games-pass-portfolio-data-analysis)\
-[Clique aqui para acessar o dataset de assassinos em série](https://www.kaggle.com/code/ving2000/serial-murder-analysis)\
-[Clique aqui para acessar o dataset do campeonato brasileiro](https://www.kaggle.com/code/gustavokonesckifuhr/an-lise-de-dados-campeonato-brasileiro/notebook)
+[Clique aqui para acessar o kaggle](https://www.kaggle.com/)
+
+## Gerar executável do Flet:
+
+1. Instalar os pacotes:
+- pyinstaller
+- pillow
+2. flet pack pasta_flet_app/src/main.py --name=nome_flet_app --icon assets/icone_app.png
