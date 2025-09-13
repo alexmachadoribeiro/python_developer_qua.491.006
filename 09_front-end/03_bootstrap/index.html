@@ -58,16 +58,164 @@
     <!-- container -->
     <div class="container">
         <h1>Formulário</h1>
-        <hr>
+        <hr class="mb-5">
         <form action="" method="">
-            <!-- row -->
+            <h2>Dados pessoais</h2>
+            <hr class="mb-5">
+            <!-- row 1 -->
             <div class="row">
+                <!-- campo nome -->
                 <div class="col-12 col-md-6 col-lg-8">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nome completo</span>
                         <input type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-default">
                     </div>
+                </div>
+                <!-- campo cpf -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- row 2 -->
+            <div class="row">
+                <!-- campo telefone -->
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Telefone</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <!-- campo data de nascimento -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Data de nascimento</span>
+                        <input type="date" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <!-- campo gênero -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-4">
+                        <label class="input-group-text" for="inputGroupSelect01">Gênero</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Escolha...</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="3">Outro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+            
+            <!-- row 3 -->
+            <div class="row">
+                <!-- campo e-mail -->
+                <div class="col-12 col-md-6">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">E-mail</span>
+                        <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <!-- campo escolaridade -->
+                <div class="col-12 col-md-6">
+                    <div class="input-group mb-4">
+                        <label class="input-group-text" for="inputGroupSelect01">Escolaridade</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Escolha...</option>
+                            <option value="1">Nível fundamental</option>
+                            <option value="2">Nível médio</option>
+                            <option value="3">Nível Superior</option>
+                            <option value="3">Pós-graduação</option>
+                            <option value="3">Mestrado</option>
+                            <option value="3">Doutorado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+            
+            <!-- campos do endereço -->
+            <h2>Endereço</h2>
+            <hr class="mb-5">
+            <!-- row 4 -->
+            <div class="row">
+                <!-- campo cep -->
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">CEP</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo estado -->
+                <div class="col-12 col-md-8 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Estado</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo cidade -->
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cidade</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- row 5 -->
+            <div class="row">
+                <!-- campo bairro -->
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo logradouro -->
+                <div class="col-12 col-md-8 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Logradouro</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo número -->
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Número</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+            
+            <!-- row 6 -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Complemento</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- botão -->
+            <div class="row">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="button" class="btn btn-primary mt-5 mb-5">Enviar</button>
                 </div>
             </div>
         </form>
