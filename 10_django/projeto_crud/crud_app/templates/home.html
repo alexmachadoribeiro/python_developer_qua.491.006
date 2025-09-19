@@ -6,14 +6,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>CRUD Django</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body class="bg-dark" data-bs-theme="dark">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style="background-color: #16161d; box-shadow: 10px 0px 15px #16161d;">
+    <nav class="navbar navbar-expand-lg mb-5" data-bs-theme="dark" style="background-color: #16161d; box-shadow: 10px 0px 15px #16161d;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="{% static 'img/icone.png' %}" alt="Ícone" style="margin: -10px 0px;" />
@@ -29,7 +29,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cadastrar pessoa</a>
+                        <a class="nav-link" href="/crud_app/cadastro">Cadastrar pessoa</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
