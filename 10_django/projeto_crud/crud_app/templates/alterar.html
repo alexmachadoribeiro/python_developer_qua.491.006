@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastrar pessoa</title>
+    <title>Alterar dados</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
@@ -44,15 +44,15 @@
 
     <!-- container -->
     <div class="container">
-        <h1>Cadastrar pessoa</h1>
+        <h1>Alterar dados</h1>
         <hr class="mb-5">
-        <form action="{% url 'cadastro_pessoa' %}" method="POST">
+        <form action="{% url 'alterar_pessoa' pessoa.id_pessoa %}" method="POST">
             {% csrf_token %}
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <div class="input-group mb-4">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nome completo</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nome" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nome" value="{{ pessoa.nome }}" required>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="input-group mb-4">
                         <span class="input-group-text" id="inputGroup-sizing-default">E-mail</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" value="{{ pessoa.email }}" required>
                     </div>
                 </div>
             </div>
@@ -68,13 +68,13 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="input-group mb-4">
                         <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="cpf" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="cpf" value="{{ pessoa.cpf }}" required>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button type="submit" class="btn btn-primary mt-5 mb-5">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary mt-5 mb-5">Alterar</button>
                 </div>
             </div>
         </form>
