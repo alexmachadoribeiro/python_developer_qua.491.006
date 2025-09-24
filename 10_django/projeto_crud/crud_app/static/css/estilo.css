@@ -18,3 +18,27 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
+
+.lista-pessoas {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+.lista-pessoas li {
+    background-color: #16161d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+}
+
+.lista-pessoas li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 991px) {
+    .lista-pessoas {
+        margin-bottom: 20px;
+    }
+}

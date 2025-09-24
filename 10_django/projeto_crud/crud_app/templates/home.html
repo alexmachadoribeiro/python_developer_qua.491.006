@@ -5,22 +5,30 @@
     <!-- container -->
     <div class="container">
         <h1>Lista de pessoas</h1>
-        <hr>
+        <hr class="mb-5">
         <!-- lista de pessoas -->
-        <ul>
-            {% for pessoa in pessoas %}
-                <li>
-                    <b>ID: </b>{{ pessoa.id_pessoa }} | 
-                    <b>Nome: </b>{{ pessoa.nome }} |
-                    <b>E-mail: </b>{{ pessoa.email }} |
-                    <b>CPF: </b>{{ pessoa.cpf }} |
-                    <a href="{% url 'alterar_pessoa' pessoa.id_pessoa %}">Alterar</a> |
-                    <a href="{% url 'deletar_pessoa' pessoa.id_pessoa %}">Excluir</a>
+        {% for pessoa in pessoas %}
+            <ul class="row lista-pessoas">
+                <li class="col-12 col-md-2 col-lg-1"><b>ID: </b>{{ pessoa.id_pessoa }}</li>
+                <li class="col-12 col-md-10 col-lg-3">{{ pessoa.nome }}</li>
+                <li class="col-12 col-md-8 col-lg-4">{{ pessoa.email }}</li>
+                <li class="col-12 col-md-4 col-lg-2"><b>CPF: </b>{{ pessoa.cpf }}</li>
+                <li class="col-6 col-md-6 col-lg-1">
+                    <a href="{% url 'alterar_pessoa' pessoa.id_pessoa %}">
+                        <img src="{% static 'img/editar.png' %}" alt="Editar" title="Editar" style="width: 24px;">
+                    </a>
                 </li>
-            {% empty %}
+                <li class="col-6 col-md-6 col-lg-1">
+                    <a href="{% url 'deletar_pessoa' pessoa.id_pessoa %}">
+                        <img src="{% static 'img/deletar.png' %}" alt="Deletar" title="Deletar" style="width: 24px;">
+                    </a>
+                </li>
+            </ul>
+        {% empty %}
+            <ul>
                 <li>Nenhuma pessoa cadastrada</li>
-            {% endfor %}
-        </ul>
+            </ul>
+        {% endfor %}
     </div>
     <!-- fim do container -->
 {% endblock %}
